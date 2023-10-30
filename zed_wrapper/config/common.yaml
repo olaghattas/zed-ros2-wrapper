@@ -59,11 +59,11 @@
             pos_tracking_enabled: true # True to enable positional tracking from start
             pos_tracking_mode: 'STANDARD' # Matches the ZED SDK setting: 'QUALITY', 'STANDARD'
             imu_fusion: true # enable/disable IMU fusion. When set to false, only the optical odometry will be used.
-            publish_tf: true # [usually overwritten by launch file] publish `odom -> base_link` TF
-            publish_map_tf: true # [usually overwritten by launch file] publish `map -> odom` TF            
-            base_frame: "base_link" # usually overwritten by launch file
-            map_frame: "map"
-            odometry_frame: "odom"
+            publish_tf: false # [usually overwritten by launch file] publish `odom -> base_link` TF
+            publish_map_tf: false # [usually overwritten by launch file] publish `map -> odom` TF
+            base_frame: "base_link_zed" # usually overwritten by launch file
+            map_frame: "map_zed"
+            odometry_frame: "odom_zed"
             area_memory_db_path: ""
             area_memory: true # Enable to detect loop closure
             depth_min_range: 0.0 # Set this value for removing fixed zones of the robot in the FoV of the camerafrom the visual odometry evaluation
@@ -140,7 +140,7 @@
             qos_durability: 2 # '1': TRANSIENT_LOCAL - '2': VOLATILE
         
         body_tracking:
-            bt_enabled: false # True to enable Body Tracking
+            bt_enabled: true # True to enable Body Tracking
             model: 'HUMAN_BODY_MEDIUM' # 'HUMAN_BODY_FAST', 'HUMAN_BODY_MEDIUM', 'HUMAN_BODY_ACCURATE'
             body_format: 'BODY_38' # 'BODY_18','BODY_34','BODY_38','BODY_70'
             allow_reduced_precision_inference: false # Allow inference to run at a lower precision to improve runtime and memory usage

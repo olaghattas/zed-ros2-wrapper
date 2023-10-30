@@ -196,11 +196,11 @@ def generate_launch_description():
                 description='Enable URDF processing and starts Robot State Published to propagate static TF.'),
             DeclareLaunchArgument(
                 'publish_tf',
-                default_value='true',
+                default_value='false',
                 description='Enable publication of the `odom -> base_link` TF.'),
             DeclareLaunchArgument(
                 'publish_map_tf',
-                default_value='true',
+                default_value='false',
                 description='Enable publication of the `map -> odom` TF. Note: Ignored if `publish_tf` is False.'),
             DeclareLaunchArgument(
                 'publish_imu_tf',
@@ -220,7 +220,7 @@ def generate_launch_description():
                 description='Path to an input SVO file. Note: overrides the parameter `general.svo_file` in `common.yaml`.'),
             DeclareLaunchArgument(
                 'base_frame',
-                default_value='base_link',
+                default_value='base_link_zed',
                 description='Name of the base link frame.'),
             DeclareLaunchArgument(
                 'gnss_frame',
