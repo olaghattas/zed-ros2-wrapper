@@ -169,14 +169,14 @@ def generate_launch_description():
             SetEnvironmentVariable(name='RCUTILS_COLORIZED_OUTPUT', value='1'),
             DeclareLaunchArgument(
                 'camera_name',
-                default_value=TextSubstitution(text=""),
+                default_value="zed_" + os.environ.get("cam_loc"),
                 description='The name of the camera. It can be different from the camera model and it will be used as node `namespace`. Leave empty to use the camera model as camera name.'),
             DeclareLaunchArgument(
                 'camera_model',
                 description='The model of the camera. Using a wrong camera model can disable camera features. Valid models: `zed`, `zedm`, `zed2`, `zed2i`.'),
             DeclareLaunchArgument(
                 'node_name',
-                default_value='zed_node',
+                default_value='zed_node_' + os.environ.get("cam_loc"),
                 description='The name of the zed_wrapper node. All the topic will have the same prefix: `/<camera_name>/<node_name>/`'),
             DeclareLaunchArgument(
                 'config_path',
@@ -220,7 +220,7 @@ def generate_launch_description():
                 description='Path to an input SVO file. Note: overrides the parameter `general.svo_file` in `common.yaml`.'),
             DeclareLaunchArgument(
                 'base_frame',
-                default_value='base_link_zed',
+                default_value='base_link_zed_' + os.environ.get("cam_loc"),
                 description='Name of the base link frame.'),
             DeclareLaunchArgument(
                 'gnss_frame',
