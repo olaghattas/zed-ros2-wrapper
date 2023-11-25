@@ -159,7 +159,7 @@ def launch_setup(context, *args, **kwargs):
 
     return [
         rsp_node,
-        zed_wrapper_node
+        zed_wrapper_node,
     ]
 
 
